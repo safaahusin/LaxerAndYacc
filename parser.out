@@ -1,0 +1,647 @@
+Created by PLY version 3.4 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    OneLineComment
+    MuliLineComment
+
+Grammar
+
+Rule 0     S' -> ExpressionStatement
+Rule 1     ExpressionStatement -> statement EndOfStatement
+Rule 2     ExpressionStatement -> statement EndOfStatement ExpressionStatement
+Rule 3     statement -> DataType NameVar
+Rule 4     statement -> Array
+Rule 5     statement -> ArrayList
+Rule 6     statement -> DataStructure
+Rule 7     statement -> Pointer
+Rule 8     NameVar -> Name
+Rule 9     DataType -> Primitive
+Rule 10    DataType -> NonPrimitive
+Rule 11    Primitive -> INT
+Rule 12    Primitive -> FLOAT
+Rule 13    Primitive -> DOUBLE
+Rule 14    Primitive -> BOOL
+Rule 15    Primitive -> CHAR
+Rule 16    NonPrimitive -> INTEGER
+Rule 17    NonPrimitive -> Double
+Rule 18    NonPrimitive -> STRING
+Rule 19    NonPrimitive -> BOOLEAN
+Rule 20    NonPrimitive -> Float
+Rule 21    NonPrimitive -> Oop
+Rule 22    Oop -> OopType NameVar
+Rule 23    OopType -> STRUCT
+Rule 24    OopType -> CLASS
+Rule 25    const -> Number
+Rule 26    Array -> DataType NameVar LSQUARE const RSQUARE
+Rule 27    ArrayList -> ArrayListType LANGLE NonPrimitive RANGLE NameVar
+Rule 28    ArrayListType -> ARRAYLIST
+Rule 29    ArrayListType -> LIST
+Rule 30    DataStructure -> DataStructureType NameVar LPairBracket const RPairBracket
+Rule 31    DataStructureType -> HASHMAP
+Rule 32    DataStructureType -> DICTIONARY
+Rule 33    Pointer -> DataType PointerChars NameVar
+Rule 34    PointerChars -> PointerChar
+Rule 35    PointerChars -> PointerChar PointerChars
+
+Terminals, with rules where they appear
+
+ARRAYLIST            : 28
+BOOL                 : 14
+BOOLEAN              : 19
+CHAR                 : 15
+CLASS                : 24
+DICTIONARY           : 32
+DOUBLE               : 13
+Double               : 17
+EndOfStatement       : 1 2
+FLOAT                : 12
+Float                : 20
+HASHMAP              : 31
+INT                  : 11
+INTEGER              : 16
+LANGLE               : 27
+LIST                 : 29
+LPairBracket         : 30
+LSQUARE              : 26
+MuliLineComment      : 
+Name                 : 8
+Number               : 25
+OneLineComment       : 
+PointerChar          : 34 35
+RANGLE               : 27
+RPairBracket         : 30
+RSQUARE              : 26
+STRING               : 18
+STRUCT               : 23
+error                : 
+
+Nonterminals, with rules where they appear
+
+Array                : 4
+ArrayList            : 5
+ArrayListType        : 27
+DataStructure        : 6
+DataStructureType    : 30
+DataType             : 3 26 33
+ExpressionStatement  : 2 0
+NameVar              : 3 22 26 27 30 33
+NonPrimitive         : 10 27
+Oop                  : 21
+OopType              : 22
+Pointer              : 7
+PointerChars         : 33 35
+Primitive            : 9
+const                : 26 30
+statement            : 1 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . ExpressionStatement
+    (1) ExpressionStatement -> . statement EndOfStatement
+    (2) ExpressionStatement -> . statement EndOfStatement ExpressionStatement
+    (3) statement -> . DataType NameVar
+    (4) statement -> . Array
+    (5) statement -> . ArrayList
+    (6) statement -> . DataStructure
+    (7) statement -> . Pointer
+    (9) DataType -> . Primitive
+    (10) DataType -> . NonPrimitive
+    (26) Array -> . DataType NameVar LSQUARE const RSQUARE
+    (27) ArrayList -> . ArrayListType LANGLE NonPrimitive RANGLE NameVar
+    (30) DataStructure -> . DataStructureType NameVar LPairBracket const RPairBracket
+    (33) Pointer -> . DataType PointerChars NameVar
+    (11) Primitive -> . INT
+    (12) Primitive -> . FLOAT
+    (13) Primitive -> . DOUBLE
+    (14) Primitive -> . BOOL
+    (15) Primitive -> . CHAR
+    (16) NonPrimitive -> . INTEGER
+    (17) NonPrimitive -> . Double
+    (18) NonPrimitive -> . STRING
+    (19) NonPrimitive -> . BOOLEAN
+    (20) NonPrimitive -> . Float
+    (21) NonPrimitive -> . Oop
+    (28) ArrayListType -> . ARRAYLIST
+    (29) ArrayListType -> . LIST
+    (31) DataStructureType -> . HASHMAP
+    (32) DataStructureType -> . DICTIONARY
+    (22) Oop -> . OopType NameVar
+    (23) OopType -> . STRUCT
+    (24) OopType -> . CLASS
+
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+    DOUBLE          shift and go to state 14
+    BOOL            shift and go to state 15
+    CHAR            shift and go to state 16
+    INTEGER         shift and go to state 17
+    Double          shift and go to state 18
+    STRING          shift and go to state 19
+    BOOLEAN         shift and go to state 20
+    Float           shift and go to state 21
+    ARRAYLIST       shift and go to state 23
+    LIST            shift and go to state 24
+    HASHMAP         shift and go to state 25
+    DICTIONARY      shift and go to state 26
+    STRUCT          shift and go to state 28
+    CLASS           shift and go to state 29
+
+    ExpressionStatement            shift and go to state 1
+    statement                      shift and go to state 2
+    DataType                       shift and go to state 3
+    Array                          shift and go to state 4
+    ArrayList                      shift and go to state 5
+    DataStructure                  shift and go to state 6
+    Pointer                        shift and go to state 7
+    Primitive                      shift and go to state 8
+    NonPrimitive                   shift and go to state 9
+    ArrayListType                  shift and go to state 10
+    DataStructureType              shift and go to state 11
+    Oop                            shift and go to state 22
+    OopType                        shift and go to state 27
+
+state 1
+
+    (0) S' -> ExpressionStatement .
+
+
+
+state 2
+
+    (1) ExpressionStatement -> statement . EndOfStatement
+    (2) ExpressionStatement -> statement . EndOfStatement ExpressionStatement
+
+    EndOfStatement  shift and go to state 30
+
+
+state 3
+
+    (3) statement -> DataType . NameVar
+    (26) Array -> DataType . NameVar LSQUARE const RSQUARE
+    (33) Pointer -> DataType . PointerChars NameVar
+    (8) NameVar -> . Name
+    (34) PointerChars -> . PointerChar
+    (35) PointerChars -> . PointerChar PointerChars
+
+    Name            shift and go to state 33
+    PointerChar     shift and go to state 34
+
+    NameVar                        shift and go to state 31
+    PointerChars                   shift and go to state 32
+
+state 4
+
+    (4) statement -> Array .
+
+    EndOfStatement  reduce using rule 4 (statement -> Array .)
+
+
+state 5
+
+    (5) statement -> ArrayList .
+
+    EndOfStatement  reduce using rule 5 (statement -> ArrayList .)
+
+
+state 6
+
+    (6) statement -> DataStructure .
+
+    EndOfStatement  reduce using rule 6 (statement -> DataStructure .)
+
+
+state 7
+
+    (7) statement -> Pointer .
+
+    EndOfStatement  reduce using rule 7 (statement -> Pointer .)
+
+
+state 8
+
+    (9) DataType -> Primitive .
+
+    Name            reduce using rule 9 (DataType -> Primitive .)
+    PointerChar     reduce using rule 9 (DataType -> Primitive .)
+
+
+state 9
+
+    (10) DataType -> NonPrimitive .
+
+    Name            reduce using rule 10 (DataType -> NonPrimitive .)
+    PointerChar     reduce using rule 10 (DataType -> NonPrimitive .)
+
+
+state 10
+
+    (27) ArrayList -> ArrayListType . LANGLE NonPrimitive RANGLE NameVar
+
+    LANGLE          shift and go to state 35
+
+
+state 11
+
+    (30) DataStructure -> DataStructureType . NameVar LPairBracket const RPairBracket
+    (8) NameVar -> . Name
+
+    Name            shift and go to state 33
+
+    NameVar                        shift and go to state 36
+
+state 12
+
+    (11) Primitive -> INT .
+
+    Name            reduce using rule 11 (Primitive -> INT .)
+    PointerChar     reduce using rule 11 (Primitive -> INT .)
+
+
+state 13
+
+    (12) Primitive -> FLOAT .
+
+    Name            reduce using rule 12 (Primitive -> FLOAT .)
+    PointerChar     reduce using rule 12 (Primitive -> FLOAT .)
+
+
+state 14
+
+    (13) Primitive -> DOUBLE .
+
+    Name            reduce using rule 13 (Primitive -> DOUBLE .)
+    PointerChar     reduce using rule 13 (Primitive -> DOUBLE .)
+
+
+state 15
+
+    (14) Primitive -> BOOL .
+
+    Name            reduce using rule 14 (Primitive -> BOOL .)
+    PointerChar     reduce using rule 14 (Primitive -> BOOL .)
+
+
+state 16
+
+    (15) Primitive -> CHAR .
+
+    Name            reduce using rule 15 (Primitive -> CHAR .)
+    PointerChar     reduce using rule 15 (Primitive -> CHAR .)
+
+
+state 17
+
+    (16) NonPrimitive -> INTEGER .
+
+    Name            reduce using rule 16 (NonPrimitive -> INTEGER .)
+    PointerChar     reduce using rule 16 (NonPrimitive -> INTEGER .)
+    RANGLE          reduce using rule 16 (NonPrimitive -> INTEGER .)
+
+
+state 18
+
+    (17) NonPrimitive -> Double .
+
+    Name            reduce using rule 17 (NonPrimitive -> Double .)
+    PointerChar     reduce using rule 17 (NonPrimitive -> Double .)
+    RANGLE          reduce using rule 17 (NonPrimitive -> Double .)
+
+
+state 19
+
+    (18) NonPrimitive -> STRING .
+
+    Name            reduce using rule 18 (NonPrimitive -> STRING .)
+    PointerChar     reduce using rule 18 (NonPrimitive -> STRING .)
+    RANGLE          reduce using rule 18 (NonPrimitive -> STRING .)
+
+
+state 20
+
+    (19) NonPrimitive -> BOOLEAN .
+
+    Name            reduce using rule 19 (NonPrimitive -> BOOLEAN .)
+    PointerChar     reduce using rule 19 (NonPrimitive -> BOOLEAN .)
+    RANGLE          reduce using rule 19 (NonPrimitive -> BOOLEAN .)
+
+
+state 21
+
+    (20) NonPrimitive -> Float .
+
+    Name            reduce using rule 20 (NonPrimitive -> Float .)
+    PointerChar     reduce using rule 20 (NonPrimitive -> Float .)
+    RANGLE          reduce using rule 20 (NonPrimitive -> Float .)
+
+
+state 22
+
+    (21) NonPrimitive -> Oop .
+
+    Name            reduce using rule 21 (NonPrimitive -> Oop .)
+    PointerChar     reduce using rule 21 (NonPrimitive -> Oop .)
+    RANGLE          reduce using rule 21 (NonPrimitive -> Oop .)
+
+
+state 23
+
+    (28) ArrayListType -> ARRAYLIST .
+
+    LANGLE          reduce using rule 28 (ArrayListType -> ARRAYLIST .)
+
+
+state 24
+
+    (29) ArrayListType -> LIST .
+
+    LANGLE          reduce using rule 29 (ArrayListType -> LIST .)
+
+
+state 25
+
+    (31) DataStructureType -> HASHMAP .
+
+    Name            reduce using rule 31 (DataStructureType -> HASHMAP .)
+
+
+state 26
+
+    (32) DataStructureType -> DICTIONARY .
+
+    Name            reduce using rule 32 (DataStructureType -> DICTIONARY .)
+
+
+state 27
+
+    (22) Oop -> OopType . NameVar
+    (8) NameVar -> . Name
+
+    Name            shift and go to state 33
+
+    NameVar                        shift and go to state 37
+
+state 28
+
+    (23) OopType -> STRUCT .
+
+    Name            reduce using rule 23 (OopType -> STRUCT .)
+
+
+state 29
+
+    (24) OopType -> CLASS .
+
+    Name            reduce using rule 24 (OopType -> CLASS .)
+
+
+state 30
+
+    (1) ExpressionStatement -> statement EndOfStatement .
+    (2) ExpressionStatement -> statement EndOfStatement . ExpressionStatement
+    (1) ExpressionStatement -> . statement EndOfStatement
+    (2) ExpressionStatement -> . statement EndOfStatement ExpressionStatement
+    (3) statement -> . DataType NameVar
+    (4) statement -> . Array
+    (5) statement -> . ArrayList
+    (6) statement -> . DataStructure
+    (7) statement -> . Pointer
+    (9) DataType -> . Primitive
+    (10) DataType -> . NonPrimitive
+    (26) Array -> . DataType NameVar LSQUARE const RSQUARE
+    (27) ArrayList -> . ArrayListType LANGLE NonPrimitive RANGLE NameVar
+    (30) DataStructure -> . DataStructureType NameVar LPairBracket const RPairBracket
+    (33) Pointer -> . DataType PointerChars NameVar
+    (11) Primitive -> . INT
+    (12) Primitive -> . FLOAT
+    (13) Primitive -> . DOUBLE
+    (14) Primitive -> . BOOL
+    (15) Primitive -> . CHAR
+    (16) NonPrimitive -> . INTEGER
+    (17) NonPrimitive -> . Double
+    (18) NonPrimitive -> . STRING
+    (19) NonPrimitive -> . BOOLEAN
+    (20) NonPrimitive -> . Float
+    (21) NonPrimitive -> . Oop
+    (28) ArrayListType -> . ARRAYLIST
+    (29) ArrayListType -> . LIST
+    (31) DataStructureType -> . HASHMAP
+    (32) DataStructureType -> . DICTIONARY
+    (22) Oop -> . OopType NameVar
+    (23) OopType -> . STRUCT
+    (24) OopType -> . CLASS
+
+    $end            reduce using rule 1 (ExpressionStatement -> statement EndOfStatement .)
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+    DOUBLE          shift and go to state 14
+    BOOL            shift and go to state 15
+    CHAR            shift and go to state 16
+    INTEGER         shift and go to state 17
+    Double          shift and go to state 18
+    STRING          shift and go to state 19
+    BOOLEAN         shift and go to state 20
+    Float           shift and go to state 21
+    ARRAYLIST       shift and go to state 23
+    LIST            shift and go to state 24
+    HASHMAP         shift and go to state 25
+    DICTIONARY      shift and go to state 26
+    STRUCT          shift and go to state 28
+    CLASS           shift and go to state 29
+
+    statement                      shift and go to state 2
+    ExpressionStatement            shift and go to state 38
+    DataType                       shift and go to state 3
+    Array                          shift and go to state 4
+    ArrayList                      shift and go to state 5
+    DataStructure                  shift and go to state 6
+    Pointer                        shift and go to state 7
+    Primitive                      shift and go to state 8
+    NonPrimitive                   shift and go to state 9
+    ArrayListType                  shift and go to state 10
+    DataStructureType              shift and go to state 11
+    Oop                            shift and go to state 22
+    OopType                        shift and go to state 27
+
+state 31
+
+    (3) statement -> DataType NameVar .
+    (26) Array -> DataType NameVar . LSQUARE const RSQUARE
+
+    EndOfStatement  reduce using rule 3 (statement -> DataType NameVar .)
+    LSQUARE         shift and go to state 39
+
+
+state 32
+
+    (33) Pointer -> DataType PointerChars . NameVar
+    (8) NameVar -> . Name
+
+    Name            shift and go to state 33
+
+    NameVar                        shift and go to state 40
+
+state 33
+
+    (8) NameVar -> Name .
+
+    LSQUARE         reduce using rule 8 (NameVar -> Name .)
+    EndOfStatement  reduce using rule 8 (NameVar -> Name .)
+    LPairBracket    reduce using rule 8 (NameVar -> Name .)
+    Name            reduce using rule 8 (NameVar -> Name .)
+    PointerChar     reduce using rule 8 (NameVar -> Name .)
+    RANGLE          reduce using rule 8 (NameVar -> Name .)
+
+
+state 34
+
+    (34) PointerChars -> PointerChar .
+    (35) PointerChars -> PointerChar . PointerChars
+    (34) PointerChars -> . PointerChar
+    (35) PointerChars -> . PointerChar PointerChars
+
+    Name            reduce using rule 34 (PointerChars -> PointerChar .)
+    PointerChar     shift and go to state 34
+
+    PointerChars                   shift and go to state 41
+
+state 35
+
+    (27) ArrayList -> ArrayListType LANGLE . NonPrimitive RANGLE NameVar
+    (16) NonPrimitive -> . INTEGER
+    (17) NonPrimitive -> . Double
+    (18) NonPrimitive -> . STRING
+    (19) NonPrimitive -> . BOOLEAN
+    (20) NonPrimitive -> . Float
+    (21) NonPrimitive -> . Oop
+    (22) Oop -> . OopType NameVar
+    (23) OopType -> . STRUCT
+    (24) OopType -> . CLASS
+
+    INTEGER         shift and go to state 17
+    Double          shift and go to state 18
+    STRING          shift and go to state 19
+    BOOLEAN         shift and go to state 20
+    Float           shift and go to state 21
+    STRUCT          shift and go to state 28
+    CLASS           shift and go to state 29
+
+    NonPrimitive                   shift and go to state 42
+    Oop                            shift and go to state 22
+    OopType                        shift and go to state 27
+
+state 36
+
+    (30) DataStructure -> DataStructureType NameVar . LPairBracket const RPairBracket
+
+    LPairBracket    shift and go to state 43
+
+
+state 37
+
+    (22) Oop -> OopType NameVar .
+
+    Name            reduce using rule 22 (Oop -> OopType NameVar .)
+    PointerChar     reduce using rule 22 (Oop -> OopType NameVar .)
+    RANGLE          reduce using rule 22 (Oop -> OopType NameVar .)
+
+
+state 38
+
+    (2) ExpressionStatement -> statement EndOfStatement ExpressionStatement .
+
+    $end            reduce using rule 2 (ExpressionStatement -> statement EndOfStatement ExpressionStatement .)
+
+
+state 39
+
+    (26) Array -> DataType NameVar LSQUARE . const RSQUARE
+    (25) const -> . Number
+
+    Number          shift and go to state 45
+
+    const                          shift and go to state 44
+
+state 40
+
+    (33) Pointer -> DataType PointerChars NameVar .
+
+    EndOfStatement  reduce using rule 33 (Pointer -> DataType PointerChars NameVar .)
+
+
+state 41
+
+    (35) PointerChars -> PointerChar PointerChars .
+
+    Name            reduce using rule 35 (PointerChars -> PointerChar PointerChars .)
+
+
+state 42
+
+    (27) ArrayList -> ArrayListType LANGLE NonPrimitive . RANGLE NameVar
+
+    RANGLE          shift and go to state 46
+
+
+state 43
+
+    (30) DataStructure -> DataStructureType NameVar LPairBracket . const RPairBracket
+    (25) const -> . Number
+
+    Number          shift and go to state 45
+
+    const                          shift and go to state 47
+
+state 44
+
+    (26) Array -> DataType NameVar LSQUARE const . RSQUARE
+
+    RSQUARE         shift and go to state 48
+
+
+state 45
+
+    (25) const -> Number .
+
+    RSQUARE         reduce using rule 25 (const -> Number .)
+    RPairBracket    reduce using rule 25 (const -> Number .)
+
+
+state 46
+
+    (27) ArrayList -> ArrayListType LANGLE NonPrimitive RANGLE . NameVar
+    (8) NameVar -> . Name
+
+    Name            shift and go to state 33
+
+    NameVar                        shift and go to state 49
+
+state 47
+
+    (30) DataStructure -> DataStructureType NameVar LPairBracket const . RPairBracket
+
+    RPairBracket    shift and go to state 50
+
+
+state 48
+
+    (26) Array -> DataType NameVar LSQUARE const RSQUARE .
+
+    EndOfStatement  reduce using rule 26 (Array -> DataType NameVar LSQUARE const RSQUARE .)
+
+
+state 49
+
+    (27) ArrayList -> ArrayListType LANGLE NonPrimitive RANGLE NameVar .
+
+    EndOfStatement  reduce using rule 27 (ArrayList -> ArrayListType LANGLE NonPrimitive RANGLE NameVar .)
+
+
+state 50
+
+    (30) DataStructure -> DataStructureType NameVar LPairBracket const RPairBracket .
+
+    EndOfStatement  reduce using rule 30 (DataStructure -> DataStructureType NameVar LPairBracket const RPairBracket .)
+
